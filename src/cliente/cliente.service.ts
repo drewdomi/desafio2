@@ -49,31 +49,6 @@ export class ClienteService {
     });
   }
 
-  // async atualizarById(id: number, dto: UpdateClienteDto) {
-  //   this.prisma.cliente.update({
-  //     where: { id },
-  //     data: {
-  //       nome: dto.nome,
-  //       email: dto.email,
-  //       telefone: dto.telefone,
-  //       enderecos: {
-  //         updateMany: dto.newEnderecos.map((endereco) => ({
-  //           where: { id: endereco.id },
-  //           data: {
-  //             cep: endereco.cep,
-  //             rua: endereco.rua,
-  //             numero: endereco.numero,
-  //             bairro: endereco.bairro,
-  //             complemento: endereco.complemento,
-  //             cidade: endereco.cidade,
-  //             estado: endereco.estado,
-  //           },
-  //         })),
-  //       },
-  //     },
-  //   });
-  // }
-
   async atualizarById(id: number, dto: UpdateClienteDto) {
     const currentAddresses = await this.prisma.endereco.findMany({
       where: { clienteId: id },
