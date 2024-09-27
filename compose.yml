@@ -1,0 +1,14 @@
+services:
+  dasafio-db:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=user
+      - POSTGRESQL_PASSWORD=secret
+      - POSTGRESQL_DATABASE=dasafio
+    volumes:
+      - ./.docker/dasafio-db/data:/var/lib/dasafio-db/:delegated
+
+volumes:
+  dasafio-db:
