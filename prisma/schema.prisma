@@ -50,6 +50,6 @@ model Endereco {
   cidade      String
   estado      String
   clienteId   Int
-  cliente     Cliente  @relation(fields: [clienteId], references: [id])
+  cliente     Cliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade)
   criado_em   DateTime @default(now())
 }
